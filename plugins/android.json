@@ -1,0 +1,22 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "com.dsjn.s2p"
+        },
+        "phonegap-plugin-push": {
+            "SENDER_ID": "XXXXXXX",
+            "PACKAGE_NAME": "com.dsjn.s2p"
+        },
+        "cordova-plugin-transport-security": {
+            "PACKAGE_NAME": "com.dsjn.s2p"
+        }
+    },
+    "dependent_plugins": {}
+}
