@@ -16,6 +16,9 @@
         "phonegap-plugin-push": {
             "SENDER_ID": "XXXXXXX",
             "PACKAGE_NAME": "com.dsjn.s2p"
+        },
+        "cordova-plugin-device": {
+            "PACKAGE_NAME": "com.dsjn.s2p"
         }
     },
     "dependent_plugins": {}

@@ -39,6 +39,10 @@
                         {
                             "xml": "<feature name=\"PushNotification\"><param name=\"ios-package\" value=\"PushPlugin\" /></feature>",
                             "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Device\"><param name=\"ios-package\" value=\"CDVDevice\" /></feature>",
+                            "count": 1
                         }
                     ]
                 }
@@ -55,6 +59,9 @@
         "phonegap-plugin-push": {
             "SENDER_ID": "XXXXXXX",
             "PACKAGE_NAME": "com.dsjn.s2p"
+        },
+        "cordova-plugin-device": {
+            "PACKAGE_NAME": "com.dsjn.s2p"
         }
     },
     "dependent_plugins": {},
@@ -66,11 +73,20 @@
             "clobbers": [
                 "PushNotification"
             ]
+        },
+        {
+            "file": "plugins/cordova-plugin-device/www/device.js",
+            "id": "cordova-plugin-device.device",
+            "pluginId": "cordova-plugin-device",
+            "clobbers": [
+                "device"
+            ]
         }
     ],
     "plugin_metadata": {
         "cordova-plugin-transport-security": "0.1.2",
         "cordova-plugin-whitelist": "1.2.2",
-        "phonegap-plugin-push": "1.6.3"
+        "phonegap-plugin-push": "1.6.3",
+        "cordova-plugin-device": "1.1.2"
     }
 }

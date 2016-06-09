@@ -6,6 +6,13 @@ module.exports = [
         "clobbers": [
             "PushNotification"
         ]
+    },
+    {
+        "file": "plugins/cordova-plugin-device/www/device.js",
+        "id": "cordova-plugin-device.device",
+        "clobbers": [
+            "device"
+        ]
     }
 ];
 module.exports.metadata = 
@@ -13,7 +20,8 @@ module.exports.metadata =
 {
     "cordova-plugin-whitelist": "1.2.2",
     "phonegap-plugin-push": "1.6.3",
-    "cordova-plugin-transport-security": "0.1.2"
+    "cordova-plugin-transport-security": "0.1.2",
+    "cordova-plugin-device": "1.1.2"
 };
 // BOTTOM OF METADATA
 });

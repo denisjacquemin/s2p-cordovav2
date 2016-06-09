@@ -18,6 +18,9 @@
     <feature name="PushNotification">
         <param name="ios-package" value="PushPlugin" />
     </feature>
+    <feature name="Device">
+        <param name="ios-package" value="CDVDevice" />
+    </feature>
     <name>S2P</name>
     <description>
         S2P App
@@ -30,21 +33,14 @@
     <access origin="*://s2p-api.herokuapp.com/*" />
     <access origin="*://s2p-demo.s3-eu-west-1.amazonaws.com/*" />
     <access origin="https://*.firebaseio.com/*" />
-    <dict>
-        <key>NSAllowsArbitraryLoads</key>
-        <false />
-        <key>NSExceptionDomains</key>
-        <dict>
-            <key>*.firebaseio.com</key>
-            <dict>
-                <key>NSExceptionAllowsInsecureHTTPLoads</key>
-                <key>NSIncludesSubdomains</key>
-                <true />
-            </dict>
-        </dict>
-    </dict>
     <allow-intent href="itms:*" />
     <allow-intent href="itms-apps:*" />
+    <config-file parent="NSAppTransportSecurity" target="*-Info.plist">
+        <dict>
+            <key>NSAllowsArbitraryLoads</key>
+            <true />
+        </dict>
+    </config-file>
     <preference name="AllowInlineMediaPlayback" value="false" />
     <preference name="BackupWebStorage" value="cloud" />
     <preference name="DisallowOverscroll" value="true" />
