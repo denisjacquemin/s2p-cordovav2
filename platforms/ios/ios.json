@@ -43,6 +43,10 @@
                         {
                             "xml": "<feature name=\"Device\"><param name=\"ios-package\" value=\"CDVDevice\" /></feature>",
                             "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"UniversalAnalytics\"><param name=\"ios-package\" value=\"UniversalAnalyticsPlugin\" /></feature>",
+                            "count": 1
                         }
                     ]
                 }
@@ -61,6 +65,9 @@
             "PACKAGE_NAME": "com.dsjn.s2p"
         },
         "cordova-plugin-device": {
+            "PACKAGE_NAME": "com.dsjn.s2p"
+        },
+        "cordova-plugin-google-analytics": {
             "PACKAGE_NAME": "com.dsjn.s2p"
         }
     },
@@ -81,12 +88,21 @@
             "clobbers": [
                 "device"
             ]
+        },
+        {
+            "file": "plugins/cordova-plugin-google-analytics/www/analytics.js",
+            "id": "cordova-plugin-google-analytics.UniversalAnalytics",
+            "pluginId": "cordova-plugin-google-analytics",
+            "clobbers": [
+                "analytics"
+            ]
         }
     ],
     "plugin_metadata": {
         "cordova-plugin-transport-security": "0.1.2",
         "cordova-plugin-whitelist": "1.2.2",
         "phonegap-plugin-push": "1.6.3",
-        "cordova-plugin-device": "1.1.2"
+        "cordova-plugin-device": "1.1.2",
+        "cordova-plugin-google-analytics": "0.8.1"
     }
 }

@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.dsjn.s2p" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>S2P</name>
+<widget id="com.dsjn.s2p.prod" version="0.0.4" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>Konecto</name>
     <description>
-        S2P App
+        Konecto App
     </description>
     <author email="denis.jacquemin@gmail.com" href="http://tobedefine.be">
         Denis Jacquemin
@@ -13,9 +13,9 @@
     <access origin="*" />
 -->
     <access origin="*://s2p-api-demo.herokuapp.com/*" />
-    <access origin="*://s2p-api.herokuapp.com/*" />
+    <access origin="*://s2p-api-prod.herokuapp.com/*" />
     <access origin="*://s2p-demo.s3-eu-west-1.amazonaws.com/*" />
-    <access origin="https://*.firebaseio.com/*" />
+    <access origin="https://*.google-analytics.com/*" />
 
 <!--
 
@@ -32,6 +32,14 @@
         <preference name="android-windowSoftInputMode" value="stateVisible|adjustResize" />
         <preference name="fullscreen" value="false" />
         <allow-intent href="market:*" />
+        <icon src="res/android/ldpi.png" density="ldpi" />
+        <icon src="res/android/mdpi.png" density="mdpi" />
+        <icon src="res/android/hdpi.png" density="hdpi" />
+        <icon src="res/android/xhdpi.png" density="xhdpi" />
+        <splash src="res/android/screen-hdpi-portrait.png" density="port-hdpi"/>
+        <splash src="res/android/screen-ldpi-portrait.png" density="port-ldpi"/>
+        <splash src="res/android/screen-mdpi-portrait.png" density="port-mdpi"/>
+        <splash src="res/android/screen-xhdpi-portrait.png" density="port-xhdpi"/>
     </platform>
     <platform name="ios">
         <preference name="DisallowOverscroll" value="true" />
@@ -41,8 +49,33 @@
           <dict>
               <key>NSAllowsArbitraryLoads</key>
               <true/>
-          </dict>     
+          </dict>
         </config-file>
+        <icon src="res/ios/Icon-App-60x60@3x.png" platform="ios" width="180" height="180" />
+
+        <!-- iPhone / iPod Touch  -->
+        <icon src="res/ios/Icon-App-60x60@1x.png" platform="ios" width="60" height="60" />
+        <icon src="res/ios/Icon-App-60x60@2x.png" platform="ios" width="120" height="120" />
+
+        <!-- iPad -->
+        <icon src="res/ios/Icon-App-76x76@1x.png" platform="ios" width="76" height="76" />
+        <icon src="res/ios/Icon-App-76x76@2x.png" platform="ios" width="152" height="152" />
+
+        <!-- Settings Icon -->
+        <icon src="res/ios/Icon-App-29x29@1x.png" platform="ios" width="29" height="29" />
+        <icon src="res/ios/Icon-App-29x29@2x.png" platform="ios" width="58" height="58" />
+
+        <!-- Spotlight Icon -->
+        <icon src="res/ios/Icon-App-40x40@1x.png" platform="ios" width="40" height="40" />
+        <icon src="res/ios/Icon-App-40x40@2x.png" platform="ios" width="80" height="80" />
+
+        <splash src="res/ios/screen-iphone-portrait.png" width="320" height="480"/>
+        <splash src="res/ios/screen-iphone-portrait-2x.png" width="640" height="960"/>
+        <splash src="res/ios/screen-ipad-portrait.png" width="768" height="1024"/>
+        <splash src="res/ios/screen-ipad-portrait-2x.png" width="1536" height="2048"/>
+        <splash src="res/ios/screen-iphone-portrait-568h-2x.png" width="640" height="1136"/>
+        <splash src="res/ios/screen-iphone-portrait-667h.png" width="750" height="1334"/>
+        <splash src="res/ios/screen-iphone-portrait-736h.png" width="1242" height="2208"/>
     </platform>
     <engine name="ios" spec="~4.1.1" />
     <engine name="android" spec="~5.1.1" />

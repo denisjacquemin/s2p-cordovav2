@@ -1,0 +1,18 @@
+http://ionicframework.com/docs/guide/publishing.html
+
+
+changer la version
+
+cordova build --release android
+
+
+
+# keytool -genkey -v -keystore platforms/android/build/outputs/apk/my-release-key.keystore -alias alias_name -keyalg RSA -keysize 2048 -validity 10000
+
+jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore platforms/android/build/outputs/apk/my-release-key.keystore platforms/android/build/outputs/apk/android-release-unsigned.apk alias_name
+
+dj!123
+
+mv platforms/android/build/outputs/apk/megafon.apk platforms/android/build/outputs/apk/megafon_002.apk
+
+/Users/denisjacquemin/Development/android-sdk-macosx/build-tools/23.0.3/zipalign -v 4 platforms/android/build/outputs/apk/android-release-unsigned.apk platforms/android/build/outputs/apk/konecto.apk
