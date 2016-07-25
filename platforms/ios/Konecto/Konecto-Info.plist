@@ -21,11 +21,11 @@
     <key>CFBundlePackageType</key>
     <string>APPL</string>
     <key>CFBundleShortVersionString</key>
-    <string>0.0.3</string>
+    <string>0.0.4</string>
     <key>CFBundleSignature</key>
     <string>????</string>
     <key>CFBundleVersion</key>
-    <string>0.0.3</string>
+    <string>0.0.4</string>
     <key>LSRequiresIPhoneOS</key>
     <true/>
     <key>NSMainNibFile</key>
@@ -43,7 +43,7 @@
           <key>NSExceptionAllowsInsecureHTTPLoads</key>
           <true/>
         </dict>
-        <key>s2p-api.herokuapp.com/*</key>
+        <key>s2p-api-prod.herokuapp.com/*</key>
         <dict>
           <key>NSExceptionAllowsInsecureHTTPLoads</key>
           <true/>
@@ -51,11 +51,6 @@
         <key>s2p-demo.s3-eu-west-1.amazonaws.com/*</key>
         <dict>
           <key>NSExceptionAllowsInsecureHTTPLoads</key>
-          <true/>
-        </dict>
-        <key>firebaseio.com/*</key>
-        <dict>
-          <key>NSIncludesSubdomains</key>
           <true/>
         </dict>
         <key>google-analytics.com/*</key>

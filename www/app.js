@@ -57006,7 +57006,6 @@ var enableDeviceNotification = function enableDeviceNotification(uuid, platform)
     })['catch'](function (err) {
       dispatch(handleFetchError());
       dispatch(showSnackbar('Pas de connexion'));
-      alert(err);
       console.log('Pas de connexion (enableDeviceNotification)' + err);
     });
   };
@@ -57504,6 +57503,10 @@ var _materialUiLibSvgIconsNavigationClose = require('material-ui/lib/svg-icons/n
 
 var _materialUiLibSvgIconsNavigationClose2 = _interopRequireDefault(_materialUiLibSvgIconsNavigationClose);
 
+var _materialUiLibSvgIconsCommunicationMailOutline = require('material-ui/lib/svg-icons/communication/mail-outline');
+
+var _materialUiLibSvgIconsCommunicationMailOutline2 = _interopRequireDefault(_materialUiLibSvgIconsCommunicationMailOutline);
+
 var _materialUiLibSvgIconsSocialPeople = require('material-ui/lib/svg-icons/social/people');
 
 var _materialUiLibSvgIconsSocialPeople2 = _interopRequireDefault(_materialUiLibSvgIconsSocialPeople);
@@ -57547,6 +57550,10 @@ var _materialUiLibTextField2 = _interopRequireDefault(_materialUiLibTextField);
 var _materialUiLibRaisedButton = require('material-ui/lib/raised-button');
 
 var _materialUiLibRaisedButton2 = _interopRequireDefault(_materialUiLibRaisedButton);
+
+var _materialUiLibSnackbar = require('material-ui/lib/snackbar');
+
+var _materialUiLibSnackbar2 = _interopRequireDefault(_materialUiLibSnackbar);
 
 var s2pMuiTheme = _materialUiLibStylesGetMuiTheme2['default'](_theme2['default']);
 
@@ -57601,6 +57608,10 @@ var CodeListComponent = _react2['default'].createClass({
         position: 'absolute',
         top: '74px',
         borderRadius: '0'
+      },
+      snackbar: {
+        fontFamily: 'Roboto, sans-serif',
+        webkitFontSmoothing: 'antialiased'
       },
       content: {
         position: 'absolute',
@@ -57786,15 +57797,22 @@ var CodeListComponent = _react2['default'].createClass({
         ),
         _react2['default'].createElement(
           _materialUiLibMenusMenuItem2['default'],
-          { onTouchTap: this.handleMessagesScreen },
-          'Liste des messages'
+          { onTouchTap: this.handleMessagesScreen, leftIcon: _react2['default'].createElement(_materialUiLibSvgIconsCommunicationMailOutline2['default'], null) },
+          ' Messages'
         ),
         _react2['default'].createElement(
           _materialUiLibMenusMenuItem2['default'],
-          { onTouchTap: this.handleCodes },
-          'Gestion des codes'
+          { onTouchTap: this.handleCodes, leftIcon: _react2['default'].createElement(_materialUiLibSvgIconsSocialPeople2['default'], null) },
+          'Gestion codes'
         )
-      )
+      ),
+      _react2['default'].createElement(_materialUiLibSnackbar2['default'], {
+        style: styles.snackbar,
+        open: this.props.snackbar.show,
+        message: this.props.snackbar.message,
+        autoHideDuration: 4000,
+        onRequestClose: this.handleRequestClose
+      })
     );
   },
 
@@ -57817,7 +57835,7 @@ var CodeListComponent = _react2['default'].createClass({
 exports['default'] = CodeListComponent;
 module.exports = exports['default'];
 
-},{"../theme":764,"material-ui/lib/MuiThemeProvider":289,"material-ui/lib/app-bar":297,"material-ui/lib/card/card":304,"material-ui/lib/floating-action-button":308,"material-ui/lib/icon-button":310,"material-ui/lib/left-nav":311,"material-ui/lib/lists/list":314,"material-ui/lib/lists/list-item":313,"material-ui/lib/menus/menu-item":317,"material-ui/lib/raised-button":325,"material-ui/lib/styles/getMuiTheme":335,"material-ui/lib/svg-icons/action/delete":348,"material-ui/lib/svg-icons/content/add":351,"material-ui/lib/svg-icons/navigation/close":358,"material-ui/lib/svg-icons/social/people":363,"material-ui/lib/text-field":367,"react":697}],744:[function(require,module,exports){
+},{"../theme":764,"material-ui/lib/MuiThemeProvider":289,"material-ui/lib/app-bar":297,"material-ui/lib/card/card":304,"material-ui/lib/floating-action-button":308,"material-ui/lib/icon-button":310,"material-ui/lib/left-nav":311,"material-ui/lib/lists/list":314,"material-ui/lib/lists/list-item":313,"material-ui/lib/menus/menu-item":317,"material-ui/lib/raised-button":325,"material-ui/lib/snackbar":330,"material-ui/lib/styles/getMuiTheme":335,"material-ui/lib/svg-icons/action/delete":348,"material-ui/lib/svg-icons/communication/mail-outline":350,"material-ui/lib/svg-icons/content/add":351,"material-ui/lib/svg-icons/navigation/close":358,"material-ui/lib/svg-icons/social/people":363,"material-ui/lib/text-field":367,"react":697}],744:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -58148,6 +58166,10 @@ var _materialUiLibSvgIconsCommunicationMailOutline = require('material-ui/lib/sv
 
 var _materialUiLibSvgIconsCommunicationMailOutline2 = _interopRequireDefault(_materialUiLibSvgIconsCommunicationMailOutline);
 
+var _materialUiLibSvgIconsSocialPeople = require('material-ui/lib/svg-icons/social/people');
+
+var _materialUiLibSvgIconsSocialPeople2 = _interopRequireDefault(_materialUiLibSvgIconsSocialPeople);
+
 var _materialUiLibLinearProgress = require('material-ui/lib/linear-progress');
 
 var _materialUiLibLinearProgress2 = _interopRequireDefault(_materialUiLibLinearProgress);
@@ -58271,7 +58293,8 @@ var MessageList = _react2['default'].createClass({
         padding: 0
       },
       snackbar: {
-        fontFamily: 'Roboto, sans-serif'
+        fontFamily: 'Roboto, sans-serif',
+        webkitFontSmoothing: 'antialiased'
       },
       leftbarHeader: {
         width: '100%',
@@ -58365,7 +58388,7 @@ var MessageList = _react2['default'].createClass({
       _react2['default'].createElement(
         'div',
         null,
-        _react2['default'].createElement(_materialUiLibAppBar2['default'], { id: 'header', title: 'Liste des messages',
+        _react2['default'].createElement(_materialUiLibAppBar2['default'], { id: 'header', title: 'Messages',
           style: styles.appBar,
           onLeftIconButtonTouchTap: this.handleLeftMenu,
           iconElementRight: _react2['default'].createElement(
@@ -58407,13 +58430,13 @@ var MessageList = _react2['default'].createClass({
           ),
           _react2['default'].createElement(
             _materialUiLibMenusMenuItem2['default'],
-            { onTouchTap: this.handleMessagesScreen },
-            'Liste des messages'
+            { onTouchTap: this.handleMessagesScreen, leftIcon: _react2['default'].createElement(_materialUiLibSvgIconsCommunicationMailOutline2['default'], null) },
+            'Messages'
           ),
           _react2['default'].createElement(
             _materialUiLibMenusMenuItem2['default'],
-            { onTouchTap: this.handleCodes },
-            'Gestion des codes'
+            { onTouchTap: this.handleCodes, leftIcon: _react2['default'].createElement(_materialUiLibSvgIconsSocialPeople2['default'], null) },
+            'Gestion codes'
           )
         ),
         _react2['default'].createElement(_materialUiLibSnackbar2['default'], {
@@ -58431,7 +58454,7 @@ var MessageList = _react2['default'].createClass({
 exports['default'] = MessageList;
 module.exports = exports['default'];
 
-},{"../theme":764,"./alert":741,"./message":746,"material-ui/lib/MuiThemeProvider":289,"material-ui/lib/app-bar":297,"material-ui/lib/font-icon":309,"material-ui/lib/icon-button":310,"material-ui/lib/left-nav":311,"material-ui/lib/linear-progress":312,"material-ui/lib/menus/icon-menu":316,"material-ui/lib/menus/menu-item":317,"material-ui/lib/snackbar":330,"material-ui/lib/styles":336,"material-ui/lib/styles/getMuiTheme":335,"material-ui/lib/svg-icons/communication/mail-outline":350,"material-ui/lib/svg-icons/navigation/close":358,"material-ui/lib/svg-icons/navigation/more-vert":360,"material-ui/lib/svg-icons/navigation/refresh":361,"material-ui/lib/svg-icons/social/school":364,"material-ui/lib/svg-icons/toggle/star":366,"material-ui/lib/svg-icons/toggle/star-border":365,"react":697,"react-scroll":501}],746:[function(require,module,exports){
+},{"../theme":764,"./alert":741,"./message":746,"material-ui/lib/MuiThemeProvider":289,"material-ui/lib/app-bar":297,"material-ui/lib/font-icon":309,"material-ui/lib/icon-button":310,"material-ui/lib/left-nav":311,"material-ui/lib/linear-progress":312,"material-ui/lib/menus/icon-menu":316,"material-ui/lib/menus/menu-item":317,"material-ui/lib/snackbar":330,"material-ui/lib/styles":336,"material-ui/lib/styles/getMuiTheme":335,"material-ui/lib/svg-icons/communication/mail-outline":350,"material-ui/lib/svg-icons/navigation/close":358,"material-ui/lib/svg-icons/navigation/more-vert":360,"material-ui/lib/svg-icons/navigation/refresh":361,"material-ui/lib/svg-icons/social/people":363,"material-ui/lib/svg-icons/social/school":364,"material-ui/lib/svg-icons/toggle/star":366,"material-ui/lib/svg-icons/toggle/star-border":365,"react":697,"react-scroll":501}],746:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -58733,7 +58756,8 @@ var _componentsCodeListComponent2 = _interopRequireDefault(_componentsCodeListCo
 
 var mapStateToProps = function mapStateToProps(state) {
   return {
-    codes: state.codes
+    codes: state.codes,
+    snackbar: state.snackbar
   };
 };
 
@@ -58956,17 +58980,25 @@ function initPush() {
 
   // Notification tap
   push.on('notification', function (data) {
-    push.setApplicationIconBadgeNumber(function () {
-      console.log('success setApplicationIconBadgeNumber');
-    }, function () {
-      console.log('error setApplicationIconBadgeNumber');
-    }, 0);
+
+    // push.setApplicationIconBadgeNumber(function() {
+    //   console.log('success setApplicationIconBadgeNumber');
+    // }, function() {
+    //   console.log('error setApplicationIconBadgeNumber');
+    // }, 0);
     if (!data.additionalData.foreground) {
+      console.debug('App in background');
       _store.store.dispatch(_actions.hideSnackbar());
       _store.store.dispatch(_actions.fetchMessages()).then(function () {
         _store.store.dispatch(_actions.showFullMessage(data.additionalData.message_id));
       });
+    } else {
+      console.debug('App in foreground');
+      // if app in foreground
+      _store.store.dispatch(_actions.showSnackbar(data.title));
+      _store.store.dispatch(_actions.fetchMessages());
     }
+
     console.debug('data.message: ' + data.message);
     console.debug('data.title: ' + data.title);
     console.debug('data.count: ' + data.count);
@@ -59017,11 +59049,6 @@ function startApp() {
   })['catch'](function (e) {
     console.log('Failed to load previous state: ' + e);
   });
-
-  function startApp() {
-    var app = new _containersApp2['default']({});
-    _react2['default'].renderComponent(app, document.body);
-  }
 }
 
 function buildUserId(state) {

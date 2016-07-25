@@ -17,7 +17,7 @@
        under the License.
  */
 
-package com.dsjn.s2p.prod;
+package com.dsjn.s2p;
 
 import android.os.Bundle;
 import org.apache.cordova.*;

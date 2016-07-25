@@ -58967,6 +58967,8 @@ function initPush() {
         _store.store.dispatch(_actions.showFullMessage(data.additionalData.message_id));
       });
     }
+    // if app in foreground
+    showSnackbar('Nouveau message');
     console.debug('data.message: ' + data.message);
     console.debug('data.title: ' + data.title);
     console.debug('data.count: ' + data.count);
