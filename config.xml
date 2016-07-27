@@ -8,6 +8,9 @@
         Denis Jacquemin
     </author>
     <content src="index.html" />
+    <plugin name="phonegap-plugin-push" spec="1.6.0">
+        <param name="SENDER_ID" value="441581989301" />
+    </plugin>
     <plugin name="cordova-plugin-whitelist" spec="1" />
 <!--
     <access origin="*" />
